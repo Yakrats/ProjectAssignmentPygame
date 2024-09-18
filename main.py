@@ -14,6 +14,9 @@ def main():
     # Set game and title
     pygame.display.set_caption("Asteroids")
 
+    # Player Object
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     # Initialize the clock
     clock = pygame.time.Clock()
 
@@ -36,7 +39,8 @@ def main():
         # Clear the screen with a solid black color
         screen.fill("black")
 
-        # Other drawing and rendering code goes here
+        # Player Drawn
+        player.draw(screen)
 
         # Refresh the screen
         pygame.display.flip()
