@@ -14,6 +14,12 @@ def main():
     # Set game and title
     pygame.display.set_caption("Asteroids")
 
+    # Initialize the clock
+    clock = pygame.time.Clock()
+
+    # Initialize delta time (in seconds)
+    dt = 0.0
+
     # Game loop
     running = True
     while running:
@@ -22,6 +28,9 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+        # Calculate delta time and limiting FPS to 60 seconds
+        dt = clock.tick(60) / 1000.0  # Convert milliseconds to seconds
+        
         # Game logic goes here (e.g., update positions, handle collisions, etc.)
 
         # Clear the screen with a solid black color
