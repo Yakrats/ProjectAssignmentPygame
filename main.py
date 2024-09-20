@@ -24,6 +24,13 @@ def main():
     # Initialize delta time (in seconds)
     dt = 0.0
 
+    # Two groups intialized before loop
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    # Add player to groups
+    Player.containers = (updatable, drawable)
+
     # Game loop
     running = True
     while running:
@@ -32,7 +39,9 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        player.update(dt)
+        # Update player position
+        for obj in updatable:
+            obj.update(dt)
 
         # Calculate delta time and limiting FPS to 60 seconds
         dt = clock.tick(60) / 1000.0  # Convert milliseconds to seconds
@@ -43,7 +52,8 @@ def main():
         screen.fill("black")
 
         # Player Drawn
-        player.draw(screen)
+        for obj in drawable:
+            obj.draw(screen)
 
         # Refresh the screen
         pygame.display.flip()
