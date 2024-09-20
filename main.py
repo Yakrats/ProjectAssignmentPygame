@@ -32,6 +32,8 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
+        player.update(dt)
+
         # Calculate delta time and limiting FPS to 60 seconds
         dt = clock.tick(60) / 1000.0  # Convert milliseconds to seconds
         
