@@ -18,16 +18,14 @@ class Player(CircleShape):
         b = self.position - forward * self.radius - right
         c = self.position - forward * self.radius + right
         return [a, b, c]
-    
+
     def update(self, dt):
         keys = pygame.key.get_pressed()
 
-        # Update moving foward(w) and backward(s)
         if keys[pygame.K_w]:
             self.move(dt)
         if keys[pygame.K_s]:
             self.move(-dt)
-        # Update rotating left(a) and right(d)
         if keys[pygame.K_a]:
             self.rotate(-dt)
         if keys[pygame.K_d]:
